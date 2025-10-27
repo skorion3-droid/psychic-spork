@@ -49,7 +49,6 @@ func TestTop10(t *testing.T) {
 	})
 
 	t.Run("positive test with numbers and another withespaces", func(t *testing.T) {
-
 		textWithNumbers := "1\t2\n1\t3\v3\f4"
 
 		expected := []string{
