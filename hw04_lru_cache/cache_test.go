@@ -83,10 +83,15 @@ func TestCache(t *testing.T) {
 		require.False(t, wasInCache)
 
 		ansItem, ansBool := c.Get("1")
+		require.NotEmpty(t, ansItem)
 		require.True(t, ansBool)
+
 		ansItem, ansBool = c.Get("2")
+		require.NotEmpty(t, ansItem)
 		require.True(t, ansBool)
+
 		ansItem, ansBool = c.Get("3")
+		require.NotEmpty(t, ansItem)
 		require.True(t, ansBool)
 
 		wasInCache = c.Set("4", 400)
