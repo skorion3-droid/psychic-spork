@@ -12,8 +12,6 @@ linters-settings:
     rules:
       main:
         allow:
-          - "fmt"
-          - "golang.org/x/example/hello/reverse"
           - fmt
           - errors
           - strings
@@ -21,7 +19,6 @@ linters-settings:
           - golang.org/x/example/hello/reverse
           - github.com/stretchr/testify/require
           - sort
-
 issues:
   exclude-rules:
     - path: _test\.go
