@@ -14,7 +14,10 @@ linters-settings:
         allow:
           - "fmt"
           - "golang.org/x/example/hello/reverse"
-
+          - errors
+          - strings
+          - testing
+          - github.com/stretchr/testify/require
 issues:
   exclude-rules:
     - path: _test\.go
