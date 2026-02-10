@@ -50,7 +50,57 @@ func TestCache(t *testing.T) {
 	})
 
 	t.Run("purge logic", func(t *testing.T) {
-		// Write me
+		c := NewCache(3)
+
+		wasInCache := c.Set("1", 100)
+		require.False(t, wasInCache)
+
+		wasInCache = c.Set("2", 200)
+		require.False(t, wasInCache)
+
+		wasInCache = c.Set("3", 300)
+		require.False(t, wasInCache)
+
+		wasInCache = c.Set("4", 400)
+		require.False(t, wasInCache)
+
+		ansItem, ansBool := c.Get("1")
+
+		require.False(t, ansBool)
+		require.Nil(t, ansItem)
+	})
+
+	t.Run("purge logic 2", func(t *testing.T) {
+		c := NewCache(3)
+
+		wasInCache := c.Set("1", 100)
+		require.False(t, wasInCache)
+
+		wasInCache = c.Set("2", 200)
+		require.False(t, wasInCache)
+
+		wasInCache = c.Set("3", 300)
+		require.False(t, wasInCache)
+
+		ansItem, ansBool := c.Get("1")
+		require.NotEmpty(t, ansItem)
+		require.True(t, ansBool)
+
+		ansItem, ansBool = c.Get("2")
+		require.NotEmpty(t, ansItem)
+		require.True(t, ansBool)
+
+		ansItem, ansBool = c.Get("3")
+		require.NotEmpty(t, ansItem)
+		require.True(t, ansBool)
+
+		wasInCache = c.Set("4", 400)
+		require.False(t, wasInCache)
+
+		ansItem, ansBool = c.Get("1")
+
+		require.False(t, ansBool)
+		require.Nil(t, ansItem)
 	})
 }
 
