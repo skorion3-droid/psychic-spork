@@ -19,6 +19,7 @@ linters-settings:
           - golang.org/x/example/hello/reverse
           - github.com/stretchr/testify/require
           - sort
+          - sync
 issues:
   exclude-rules:
     - path: _test\.go
